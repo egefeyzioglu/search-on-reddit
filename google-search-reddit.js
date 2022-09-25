@@ -1,15 +1,15 @@
 // ==UserScript==
 // @name         Google Search Reddit
 // @namespace    http://github.com/egefeyzioglu/
-// @version      1.1
+// @version      1.2
 // @description  Adds a "Search on Reddit" button to Google search
 // @author       Ege
 // @match        https://www.google.com/*
 // @match        https://www.google.com/search*
 // @icon         https://reddit.com/favicon.ico
 // @grant        none
-// @updateURL  http://github.com/egefeyzioglu/search-on-reddit/main/google-search-reddit.js
-// @downloadURL  http://github.com/egefeyzioglu/search-on-reddit/main/google-search-reddit.js
+// @updateURL    https://raw.githubusercontent.com/egefeyzioglu/search-on-reddit/main/google-search-reddit.js
+// @downloadURL  https://raw.githubusercontent.com/egefeyzioglu/search-on-reddit/main/google-search-reddit.js
 // ==/UserScript==
 
 (function() {
