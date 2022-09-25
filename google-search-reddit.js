@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Google Search Reddit
 // @namespace    http://github.com/egefeyzioglu/
-// @version      1.0
+// @version      1.1
 // @description  Adds a "Search on Reddit" button to Google search
 // @author       Ege
 // @match        https://www.google.com/*
@@ -24,7 +24,8 @@
     searchOnReddit.src = "https://reddit.com/favicon.ico";
     searchOnReddit.alt = "Search on Reddit";
     searchOnReddit.title = "Search on Reddit";
-    searchOnReddit.style.marginBottom = "1%";
+    searchOnReddit.id = "search-on-reddit-button";
+    searchOnReddit.style.margin = "0 0 1% 0";
     searchOnReddit.style.cursor = "pointer";
     searchOnReddit.onclick = function(){
         // Get the search box
@@ -48,4 +49,18 @@
 
     // Add the button
     searchBoxWrapper.insertBefore(searchOnReddit, insertBeforeThis);
+
+    // If the page is scrolled down, the button looks weird, fix that
+    document.body.onscroll = function(){
+        // Get elements
+        let searchBox = document.querySelector("input[aria-label=Search]");
+        let searchBar = searchBox.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
+        
+        // If the user scrolled down, the search bar is fixed on top of the page. Style accordingly
+        if(searchBar.style.position == "fixed"){
+            document.getElementById("search-on-reddit-button").style.margin = "1% 0";
+        } else {
+            document.getElementById("search-on-reddit-button").style.margin = "0 0 1% 0";
+        }
+    }
 })();
