@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Google Search Reddit
 // @namespace    http://github.com/egefeyzioglu/
-// @version      1.4
+// @version      1.5
 // @description  Adds a "Search on Reddit" button to Google search
 // @author       Ege
 // @match        https://www.google.com/*
@@ -17,7 +17,7 @@
 (function() {
     'use strict';
     // Get the elements
-    let searchBox = document.querySelector("input[aria-label=Search]");
+    let searchBox = document.querySelector("textarea[aria-label=Search]");
     let insertBeforeThis = searchBox.parentElement.nextSibling;
     let searchBoxWrapper = searchBox.parentElement.parentElement;
 
@@ -31,7 +31,7 @@
     searchOnReddit.style.cursor = "pointer";
     searchOnReddit.onclick = function(){
         // Get the search box
-        let searchBox = document.querySelector("input[aria-label=Search]");
+        let searchBox = document.querySelector("textarea[aria-label=Search]");
 
         // If we already have site:reddit.com in the query, do nothing
         if(searchBox.value.match(/\bsite:reddit.com\b/)) return;
@@ -55,7 +55,7 @@
     // If the page is scrolled down, the button looks weird, fix that
     document.body.onscroll = function(){
         // Get elements
-        let searchBox = document.querySelector("input[aria-label=Search]");
+        let searchBox = document.querySelector("textarea[aria-label=Search]");
         let searchBar = searchBox.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
         
         // If the user scrolled down, the search bar is fixed on top of the page. Style accordingly
